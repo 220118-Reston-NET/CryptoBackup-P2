@@ -7,7 +7,11 @@ public interface IRepository
 
     int LoginUser(string username, string password);
 
+    Wallet InitializeWallet(int _userId);
+
     List<AccountUser> GetAllUsers();
+
+    AccountUser GetSpecificUser(int _userID);
 
     Wallet SelectWalletbyCustomer(int _userID);
 
@@ -15,11 +19,16 @@ public interface IRepository
 
     Wallet SubtractfromWallet(decimal amount, int _userID);
 
+    AccountUser BanUser(int _userID);
+
     Assets BuyCrypto(Assets _asset);
 
     List<Assets> GetAssetsbyCustomer(int _userID);
 
-    OrderHistory AddOrderHistory(OrderHistory _orderhis);
+    void DeleteAssetRow(int _userID, string _cryptoName);
+
+    BuyOrderHistory AddBuyOrderHistory(BuyOrderHistory _borderhis);
+    SellOrderHistory AddSellOrderHistory(SellOrderHistory _sorderhis);
 
     Notification AddNotification(Notification _noti);
 
